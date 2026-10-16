@@ -114,6 +114,14 @@ Pruebas automáticas del servidor (con un Notion simulado): `pip install pytest 
 
 ## 3. Crear el proyecto en Xcode (Mac)
 
+**Rápido (recomendado):** el proyecto se genera solo con [XcodeGen](https://github.com/yonaskolb/XcodeGen) a partir de `project.yml`:
+
+```bash
+cd ATracker && xcodegen && open ATracker.xcodeproj
+```
+
+Luego elige tu equipo en *Signing & Capabilities* de los dos targets y ejecuta en el iPhone. Si prefieres hacerlo a mano:
+
 1. Xcode → **File › New › Project… › watchOS › App** → *Watch App with New Companion iOS App*.
    Nombre: `ATracker`, interfaz SwiftUI.
 2. Borra los `ContentView.swift` y `…App.swift` que genera Xcode en los dos targets.
