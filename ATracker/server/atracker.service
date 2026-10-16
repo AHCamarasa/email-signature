@@ -1,0 +1,17 @@
+# /etc/systemd/system/atracker.service
+# Ajusta User, WorkingDirectory y el puerto a cómo tengas tus otras apps en el servidor.
+[Unit]
+Description=Atracker API (minutos de estudio -> Notion)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/atracker
+EnvironmentFile=/home/ubuntu/atracker/.env
+ExecStart=/home/ubuntu/atracker/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8010
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
